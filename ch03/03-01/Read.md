@@ -1,0 +1,1 @@
+run create-react-app bulletin-board / to create bulletin-board named react project

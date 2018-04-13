@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <!--link to add JSX features-->
+    <title>Getting started with react</title>
+    <link rel="stylesheet" href="">
+    
+</head>
+
+<body>
+
+    <div id="react-container"></div>
+    <script type="text/babel">
+       class Checkbox extends React.Component{
+           constructor(props){
+                super(props)
+                this.state ={
+                    checked: false
+                    }
+                this.handleCheck = this.handleCheck.bind(this)
+            }  
+            handleCheck() {
+                this.setState({
+                    checked: !this.state.checked
+                })
+
+            }
+            render(){
+                var msg
+                if(this.state.checked){
+                    msg = "Checked"
+                }
+                else{
+                    msg = "not Checked"
+                }
+                return(
+                    <div>
+                    <input type="checkbox" onChange={this.handleCheck} />
+                    <p>this box is {msg} </p>
+                    </div>
+                )
+            }    
+        }
+        ReactDOM.render(
+        <Checkbox />, 
+        document.getElementById('react-container') )
+    </script>
+</body>
+
+</html>
